@@ -63,8 +63,14 @@ public class Exercise3 {
 
     public static List<String> findReapetdWords(String input) {
         List<String> repeatedWords = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b([A-Za-z]{2,})\\1\\b");
+        Matcher matcher = pattern.matcher(input);
+
+        while(matcher.find()){
+            repeatedWords.add(matcher.group());
+        }
+
         return repeatedWords;
-        // TODO
     }
 
     public static void main(String[] args) {}
