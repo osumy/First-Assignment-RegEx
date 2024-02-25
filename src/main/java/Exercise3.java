@@ -11,7 +11,7 @@ public class Exercise3 {
     */
 
     public static String extractURL(String text) {
-        String regex = "write your regex pattern here!";  // TODO
+        String regex = "http(s)?://(www.)?[a-zA-Z0-9@:%._-]{2,256}\\.[a-zA-Z]{2,6}([-a-zA-Z0-9@:%_+.~#?&/=]*)";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
@@ -29,8 +29,14 @@ public class Exercise3 {
      */
 
     public static boolean validateEmail(String email) {
-        // TODO
-        return false;
+        String regex = "^[a-zA-Z0-9][\\w\\.]*@([\\w]+\\.)+[\\w]{2,4}$";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+
+        boolean isValid = matcher.find();
+
+        return isValid;
     }
 
     /*
@@ -55,7 +61,5 @@ public class Exercise3 {
         // TODO
     }
 
-    public static void main(String[] args) {
-        // test your code here!
-    }
+    public static void main(String[] args) {}
 }
