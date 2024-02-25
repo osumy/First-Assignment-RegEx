@@ -16,7 +16,7 @@ public class Exercise3 {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
 
-        if (matcher.find()) {
+        if(matcher.find()){
             return matcher.group();
         }
         else{
@@ -28,7 +28,7 @@ public class Exercise3 {
     implement the method below to validate an email address
      */
 
-    public static boolean validateEmail(String email) {
+        public static boolean validateEmail(String email) {
         String regex = "^[a-zA-Z0-9][\\w\\.]*@([\\w]+\\.)+[\\w]{2,4}$";
 
         Pattern pattern = Pattern.compile(regex);
@@ -45,8 +45,14 @@ public class Exercise3 {
 
     public static List<String> findWordsWithRepeatLetters(String input) {
         List<String> wordsWithRepeatLetters = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\b[a-zA-Z]*([a-zA-Z])[a-zA-Z]*\\1[a-zA-Z]*\\b");
+        Matcher matcher = pattern.matcher(input);
+
+        while(matcher.find()){
+            wordsWithRepeatLetters.add(matcher.group());
+        }
+
         return wordsWithRepeatLetters;
-        // TODO
     }
 
     /*
